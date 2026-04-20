@@ -7,6 +7,14 @@ pipeline {
         gradle 'Gradle_Latest'
     }
 
+    environment {
+            MY_DB_USER = credentials('MY_DB_USER')
+            MY_DB_PASS = credentials('MY_DB_PASS')
+
+            // También puedes agregar variables que no son secretas directamente:
+            SPRING_DATASOURCE_URL = 'jdbc:postgresql://db-estudio:5432/gestion_ganado'
+    }
+
     stages {
         stage('Explorar') {
             steps {

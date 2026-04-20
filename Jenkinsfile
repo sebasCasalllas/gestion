@@ -9,6 +9,7 @@ pipeline {
 
     environment {
         DB_HOST = 'db-estudio'
+        DB_PORT = '5432'
     }
 
     stages {

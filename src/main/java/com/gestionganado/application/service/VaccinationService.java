@@ -5,11 +5,11 @@ import com.gestionganado.domain.exception.ResourceNotFoundException;
 import com.gestionganado.domain.model.Animal;
 import com.gestionganado.domain.model.VaccinationRecord;
 import com.gestionganado.domain.model.Vaccine;
-import com.gestionganado.domain.port.in.ApplyVaccineUseCase;
-import com.gestionganado.domain.port.in.GetUpcomingVaccinationsUseCase;
-import com.gestionganado.domain.port.out.AnimalRepositoryPort;
-import com.gestionganado.domain.port.out.VaccinationRecordRepositoryPort;
-import com.gestionganado.domain.port.out.VaccineRepositoryPort;
+import com.gestionganado.application.port.in.ApplyVaccineUseCase;
+import com.gestionganado.application.port.in.GetUpcomingVaccinationsUseCase;
+import com.gestionganado.application.port.out.AnimalRepositoryPort;
+import com.gestionganado.application.port.out.VaccinationRecordRepositoryPort;
+import com.gestionganado.application.port.out.VaccineRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.gestionganado.domain.port.in;
+package com.gestionganado.application.port.in;
 
 import com.gestionganado.domain.model.VaccinationRecord;
 import java.time.LocalDate;

@@ -1,4 +1,4 @@
-package com.gestionganado.domain.port.out;
+package com.gestionganado.application.port.out;
 
 import com.gestionganado.domain.model.Animal;
 import java.util.Optional;

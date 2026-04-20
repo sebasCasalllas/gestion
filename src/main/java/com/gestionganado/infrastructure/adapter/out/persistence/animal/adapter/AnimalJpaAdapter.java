@@ -1,7 +1,10 @@
-package com.gestionganado.infrastructure.adapter.out.persistence;
+package com.gestionganado.infrastructure.adapter.out.persistence.animal.adapter;
 
 import com.gestionganado.domain.model.Animal;
 import com.gestionganado.domain.port.out.AnimalRepositoryPort;
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.entities.AnimalEntity;
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.mappers.AnimalEntityMapper;
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.repositories.SpringDataAnimalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

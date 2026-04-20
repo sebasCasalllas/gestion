@@ -1,4 +1,4 @@
-package com.gestionganado.infrastructure.adapter.in.web;
+package com.gestionganado.infrastructure.adapter.in.request;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

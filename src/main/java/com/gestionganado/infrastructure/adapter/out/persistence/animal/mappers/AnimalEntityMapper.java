@@ -1,6 +1,7 @@
-package com.gestionganado.infrastructure.adapter.out.persistence;
+package com.gestionganado.infrastructure.adapter.out.persistence.animal.mappers;
 
 import com.gestionganado.domain.model.Animal;
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.entities.AnimalEntity;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

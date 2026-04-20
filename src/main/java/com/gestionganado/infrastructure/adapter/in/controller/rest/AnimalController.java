@@ -1,7 +1,9 @@
-package com.gestionganado.infrastructure.adapter.in.web;
+package com.gestionganado.infrastructure.adapter.in.controller.rest;
 
 import com.gestionganado.domain.model.Animal;
 import com.gestionganado.domain.port.in.CreateAnimalUseCase;
+import com.gestionganado.infrastructure.adapter.in.request.AnimalRequest;
+import com.gestionganado.infrastructure.adapter.in.response.AnimalResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

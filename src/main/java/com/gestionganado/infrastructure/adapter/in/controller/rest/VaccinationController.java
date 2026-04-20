@@ -1,10 +1,13 @@
-package com.gestionganado.infrastructure.adapter.in.web;
+package com.gestionganado.infrastructure.adapter.in.controller.rest;
 
 import com.gestionganado.domain.model.Animal;
 import com.gestionganado.domain.model.VaccinationRecord;
 import com.gestionganado.domain.model.Vaccine;
 import com.gestionganado.domain.port.in.ApplyVaccineUseCase;
 import com.gestionganado.domain.port.in.GetUpcomingVaccinationsUseCase;
+import com.gestionganado.infrastructure.adapter.in.request.VaccinationRequest;
+import com.gestionganado.infrastructure.adapter.in.response.UpcomingVaccinationResponse;
+import com.gestionganado.infrastructure.adapter.in.response.VaccinationResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

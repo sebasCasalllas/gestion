@@ -1,5 +1,7 @@
-package com.gestionganado.infrastructure.adapter.out.persistence;
+package com.gestionganado.infrastructure.adapter.out.persistence.animal.entities;
 
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.entities.AnimalEntity;
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.entities.VaccineEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;

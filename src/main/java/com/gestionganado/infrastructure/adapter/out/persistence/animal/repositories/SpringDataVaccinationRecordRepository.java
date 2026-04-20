@@ -1,5 +1,6 @@
-package com.gestionganado.infrastructure.adapter.out.persistence;
+package com.gestionganado.infrastructure.adapter.out.persistence.animal.repositories;
 
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.entities.VaccinationRecordEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

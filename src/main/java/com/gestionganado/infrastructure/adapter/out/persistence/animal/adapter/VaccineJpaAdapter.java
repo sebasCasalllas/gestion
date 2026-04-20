@@ -1,7 +1,10 @@
-package com.gestionganado.infrastructure.adapter.out.persistence;
+package com.gestionganado.infrastructure.adapter.out.persistence.animal.adapter;
 
 import com.gestionganado.domain.model.Vaccine;
 import com.gestionganado.domain.port.out.VaccineRepositoryPort;
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.entities.VaccineEntity;
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.mappers.VaccineEntityMapper;
+import com.gestionganado.infrastructure.adapter.out.persistence.animal.repositories.SpringDataVaccineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

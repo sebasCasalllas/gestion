@@ -1,4 +1,4 @@
-package com.gestionganado.infrastructure.adapter.in.web;
+package com.gestionganado.infrastructure.adapter.in.response;
 
 import lombok.Builder;
 import lombok.Data;

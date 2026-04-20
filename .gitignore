@@ -2,7 +2,9 @@
 *.class
 *.idea/
 build/
+
 .gradle/
+!gradle/wrapper/gradle-wrapper.jar
 
 # Log file
 *.log

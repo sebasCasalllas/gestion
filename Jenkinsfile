@@ -7,6 +7,10 @@ pipeline {
         gradle 'Gradle_Latest'
     }
 
+    environment {
+        DB_HOST = 'db-estudio'
+    }
+
     stages {
         stage('Explorar') {
             steps {

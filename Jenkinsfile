@@ -15,13 +15,13 @@ pipeline {
                 sh './gradlew --version'
             }
         }
+    }
 
-        steps {
-            withCredentials([usernamePassword(credentialsId: 'MY_DB_USER_ID',
-                             passwordVariable: 'MY_DB_PASS',
-                             usernameVariable: 'MY_DB_USER')]) {
-                sh './gradlew clean test -Duser=$MY_DB_USER -Dpass=$MY_DB_PASS'
-            }
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'MY_DB_USER_ID',
+                         passwordVariable: 'MY_DB_PASS',
+                         usernameVariable: 'MY_DB_USER')]) {
+            sh './gradlew clean test -Duser=$MY_DB_USER -Dpass=$MY_DB_PASS'
         }
     }
 }

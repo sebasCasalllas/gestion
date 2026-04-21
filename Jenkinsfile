@@ -36,8 +36,16 @@ pipeline {
                     string(credentialsId: 'SONAR_PROJECT_KEY', variable: 'S_PROJECT'),
                     string(credentialsId: 'SONAR_ORG', variable: 'S_ORG')
                 ]) {
+                    def sonarParams = ""
+                    if (env.CHANGE_ID) { // CHANGE_ID es el número de PR en Jenkins
+                        sonarParams = """
+                            -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+                            -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} \
+                            -Dsonar.pullrequest.base=${env.CHANGE_TARGET}
+                        """
+                    }
                     sh """
-                        ./gradlew sonar \
+                        ./gradlew jacocoTestReport sonar ${sonarParams}\
                         -Dsonar.token=${S_TOKEN} \
                         -Dsonar.projectKey=${S_PROJECT} \
                         -Dsonar.organization=${S_ORG} \

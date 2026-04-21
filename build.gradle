@@ -48,21 +48,33 @@ tasks.named('test') {
 
 
 jacocoTestReport {
+	dependsOn test
 	reports {
-		xml.required = true // ¡CRÍTICO! Sonar lee el formato XML
+		xml.required = true
+		html.required = true
 	}
 	afterEvaluate {
-		getClassDirectories().setFrom(files(classDirectories.files.collect {
-			fileTree(dir: it,
-			exclude: [
-			        '**/domain/**',
-			        '**/application/**/out/**',
-			        '**/infrastructure/**/config/**',
-			        '**/infrastructure/**/entities/**',
-			        '**/Application/**'
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					'**/DemoApplication.class',
+					'**/infrastructure/config/**',
+					'**/infrastructure/adapter/in/request/**',
+					'**/infrastructure/adapter/in/response/**',
+					'**/infrastructure/adapter/out/persistence/**/entities/**'
 			])
 		}))
 	}
 }
 
-test.finalizedBy jacocoTestReport
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.80
+			}
+		}
+	}
+}
+
+check.dependsOn jacocoTestCoverageVerification
+test.finalizedBy jacocoTestReport

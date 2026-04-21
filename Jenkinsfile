@@ -8,11 +8,8 @@ pipeline {
     }
 
     environment {
-            MY_DB_USER = credentials('MY_DB_USER')
-            MY_DB_PASS = credentials('MY_DB_PASS')
-
-            // También puedes agregar variables que no son secretas directamente:
-            SPRING_DATASOURCE_URL = 'jdbc:postgresql://db-estudio:5432/gestion_ganado'
+        DB_HOST = 'db-estudio'
+        DB_PORT = '5432'
     }
 
     stages {
@@ -23,11 +20,38 @@ pipeline {
                 sh './gradlew --version'
             }
         }
-
-        stage('Compilar y Probar') {
+        stage('Ejecutar Tests') {
             steps {
-                // Ejecutamos los tests de tu proyecto
-                sh './gradlew clean test'
+                withCredentials([usernamePassword(credentialsId: 'db_user',
+                                 passwordVariable: 'MY_DB_PASS',
+                                 usernameVariable: 'MY_DB_USER')]) {
+                    sh './gradlew clean test -Duser=$MY_DB_USER -Dpass=$MY_DB_PASS'
+                }
+            }
+        }
+        stage('Análisis en SonarCloud') {
+            steps {
+                withCredentials([
+                    string(credentialsId: 'SONAR_TOKEN', variable: 'S_TOKEN'),
+                    string(credentialsId: 'SONAR_PROJECT_KEY', variable: 'S_PROJECT'),
+                    string(credentialsId: 'SONAR_ORG', variable: 'S_ORG')
+                ]) {
+                    def sonarParams = ""
+                    if (env.CHANGE_ID) { // CHANGE_ID es el número de PR en Jenkins
+                        sonarParams = """
+                            -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+                            -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} \
+                            -Dsonar.pullrequest.base=${env.CHANGE_TARGET}
+                        """
+                    }
+                    sh """
+                        ./gradlew jacocoTestReport sonar ${sonarParams}\
+                        -Dsonar.token=${S_TOKEN} \
+                        -Dsonar.projectKey=${S_PROJECT} \
+                        -Dsonar.organization=${S_ORG} \
+                        -Dsonar.coverage.jacoco.xmlReportPaths=build/reports/jacoco/test/jacocoTestReport.xml
+                    """
+                }
             }
         }
     }

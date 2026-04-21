@@ -2,8 +2,8 @@ package com.gestionganado.application.service;
 
 import com.gestionganado.domain.exception.DomainException;
 import com.gestionganado.domain.model.Animal;
-import com.gestionganado.domain.port.in.CreateAnimalUseCase;
-import com.gestionganado.domain.port.out.AnimalRepositoryPort;
+import com.gestionganado.application.port.in.CreateAnimalUseCase;
+import com.gestionganado.application.port.out.AnimalRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

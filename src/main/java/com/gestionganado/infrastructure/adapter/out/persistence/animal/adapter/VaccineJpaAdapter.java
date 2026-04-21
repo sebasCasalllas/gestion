@@ -1,7 +1,7 @@
 package com.gestionganado.infrastructure.adapter.out.persistence.animal.adapter;
 
 import com.gestionganado.domain.model.Vaccine;
-import com.gestionganado.domain.port.out.VaccineRepositoryPort;
+import com.gestionganado.application.port.out.VaccineRepositoryPort;
 import com.gestionganado.infrastructure.adapter.out.persistence.animal.entities.VaccineEntity;
 import com.gestionganado.infrastructure.adapter.out.persistence.animal.mappers.VaccineEntityMapper;
 import com.gestionganado.infrastructure.adapter.out.persistence.animal.repositories.SpringDataVaccineRepository;

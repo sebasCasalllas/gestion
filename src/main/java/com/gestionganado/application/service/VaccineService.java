@@ -2,8 +2,8 @@ package com.gestionganado.application.service;
 
 import com.gestionganado.domain.exception.DomainException;
 import com.gestionganado.domain.model.Vaccine;
-import com.gestionganado.domain.port.in.CreateVaccineUseCase;
-import com.gestionganado.domain.port.out.VaccineRepositoryPort;
+import com.gestionganado.application.port.in.CreateVaccineUseCase;
+import com.gestionganado.application.port.out.VaccineRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
